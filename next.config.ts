@@ -1,25 +1,6 @@
 import type { NextConfig } from "next";
 
-const S3_BUCKET = "rrs-security-guards.s3.us-east-1.amazonaws.com";
-
 const nextConfig: NextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: S3_BUCKET,
-      },
-    ],
-  },
-  async rewrites() {
-    return [
-      {
-        // Proxy /rrs-img/* → S3 so Next.js image optimizer sees same-origin assets
-        source: "/rrs-img/:path*",
-        destination: `https://${S3_BUCKET}/:path*`,
-      },
-    ];
-  },
   async redirects() {
     return [
       {

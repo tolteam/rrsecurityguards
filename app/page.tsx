@@ -2,14 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import HeroForm from "@/components/HeroForm";
 
-/* ─── S3 base URL ─── */
-const S3 = "https://rrs-security-guards.s3.us-east-1.amazonaws.com";
 
 /* ─── Data ─── */
 const services = [
   {
     title: "Armed Security",
-    image: `${S3}/images/services/armed-security.webp`,
+    image: `/images/services/armed-security.webp`,
     features: [
       "24/7 Armed Protection",
       "Advanced Training Certified",
@@ -19,7 +17,7 @@ const services = [
   },
   {
     title: "Unarmed Security Guard",
-    image: `${S3}/images/services/unarmed-security.webp`,
+    image: `/images/services/unarmed-security.webp`,
     features: [
       "Professional Appearance",
       "Access Control",
@@ -29,7 +27,7 @@ const services = [
   },
   {
     title: "Mobile Patrol Security",
-    image: `${S3}/images/services/mobile-patrol.webp`,
+    image: `/images/services/mobile-patrol.webp`,
     features: [
       "Multi-Location Coverage",
       "GPS Tracking",
@@ -39,7 +37,7 @@ const services = [
   },
   {
     title: "Fire Watch Services",
-    image: `${S3}/images/services/fire-watch.webp`,
+    image: `/images/services/fire-watch.webp`,
     features: [
       "OSHA Compliance",
       "Hot Work Monitoring",
@@ -49,7 +47,7 @@ const services = [
   },
   {
     title: "Construction Site Security",
-    image: `${S3}/images/services/construction-security.webp`,
+    image: `/images/services/construction-security.webp`,
     features: [
       "Equipment Protection",
       "Access Control",
@@ -59,7 +57,7 @@ const services = [
   },
   {
     title: "Event Security",
-    image: `${S3}/images/services/event-security.webp`,
+    image: `/images/services/event-security.webp`,
     features: [
       "Crowd Management",
       "Entry Control",
@@ -69,7 +67,7 @@ const services = [
   },
   {
     title: "Executive Protection",
-    image: `${S3}/images/services/executive-protection.webp`,
+    image: `/images/services/executive-protection.webp`,
     features: [
       "VIP & Personal Protection",
       "Discreet, Low Profile Coverage",
@@ -82,7 +80,7 @@ const services = [
 const additionalServices = [
   {
     title: "Residential Security",
-    image: `${S3}/images/services/residential-security.webp`,
+    image: `/images/services/residential-security.webp`,
     features: [
       "Gated Communities & HOAs",
       "Apartment Complexes",
@@ -92,7 +90,7 @@ const additionalServices = [
   },
   {
     title: "Commercial Security",
-    image: `${S3}/images/services/commercial-security.webp`,
+    image: `/images/services/commercial-security.webp`,
     features: [
       "Construction Sites",
       "Office Buildings",
@@ -104,7 +102,7 @@ const additionalServices = [
   },
   {
     title: "Event Security",
-    image: `${S3}/images/services/event-security-2.webp`,
+    image: `/images/services/event-security-2.webp`,
     features: [
       "Private Events & Parties",
       "Corporate Events",
@@ -117,43 +115,43 @@ const additionalServices = [
 const serviceAreas = [
   {
     name: "Orange County",
-    image: `${S3}/images/areas/orange-county.webp`,
+    image: `/images/areas/orange-county.webp`,
     description:
       "We provide professional security guard services throughout Orange County, including Irvine, Anaheim, Santa Ana, Costa Mesa, Huntington Beach, Newport Beach, Tustin, Orange, Fullerton, and Garden Grove.",
   },
   {
     name: "Riverside County",
-    image: `${S3}/images/areas/riverside-county.webp`,
+    image: `/images/areas/riverside-county.webp`,
     description:
       "Security coverage is available throughout Riverside County, including Riverside, Corona, Moreno Valley, Temecula, Murrieta, Palm Desert, and Indio.",
   },
   {
     name: "San Diego County",
-    image: `${S3}/images/areas/san-diego-county.webp`,
+    image: `/images/areas/san-diego-county.webp`,
     description:
       "We serve clients across San Diego County, including San Diego, Chula Vista, Oceanside, Escondido, Carlsbad, El Cajon, and La Mesa.",
   },
   {
     name: "San Bernardino County",
-    image: `${S3}/images/areas/san-bernardino-county.webp`,
+    image: `/images/areas/san-bernardino-county.webp`,
     description:
       "Rapid Response Security Guards provides security services throughout San Bernardino County, including San Bernardino, Ontario, Rancho Cucamonga, Fontana, Victorville, Rialto, and Chino.",
   },
   {
     name: "Los Angeles County",
-    image: `${S3}/images/areas/los-angeles-county.webp`,
+    image: `/images/areas/los-angeles-county.webp`,
     description:
       "Rapid Response Security Guards delivers security services across Los Angeles County, including Los Angeles, Long Beach, Glendale, Pasadena, Torrance, Inglewood, Santa Monica, and West Hollywood.",
   },
   {
     name: "Sacramento County",
-    image: `${S3}/images/areas/sacramento-county.webp`,
+    image: `/images/areas/sacramento-county.webp`,
     description:
       "We also provide security services in Sacramento County, including Sacramento, Elk Grove, Folsom, Rancho Cordova, Citrus Heights, and Galt.",
   },
   {
     name: "San Francisco Bay Area",
-    image: `${S3}/images/areas/san-francisco-bay.webp`,
+    image: `/images/areas/san-francisco-bay.webp`,
     description:
       "We provide professional security guard services throughout the San Francisco Bay Area, including San Francisco, Oakland, San Jose, Fremont, Hayward, Berkeley, Palo Alto, and Mountain View.",
   },
@@ -220,10 +218,12 @@ export default function Home() {
         {/* Background image */}
         <div className="absolute inset-0">
           <Image
-            src={`${S3}/images/hero.webp`}
+            src="/images/hero.webp"
             alt="Security guards protecting property in Orange, California"
             fill
             priority
+            quality={70}
+            sizes="100vw"
             className="object-cover opacity-30"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-dark)] via-[var(--color-dark)]/80 to-transparent" />
@@ -415,7 +415,7 @@ export default function Home() {
       <section id="about" className="relative bg-[var(--color-dark)] overflow-hidden">
         <div className="absolute inset-0 opacity-15">
           <Image
-            src={`${S3}/images/irvine-spectrum.webp`}
+            src={`/images/irvine-spectrum.webp`}
             alt="Irvine Spectrum"
             fill
             className="object-cover"
@@ -425,7 +425,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <div className="relative rounded-xl overflow-hidden h-[320px] lg:h-[400px]">
               <Image
-                src={`${S3}/images/irvine-spectrum.webp`}
+                src={`/images/irvine-spectrum.webp`}
                 alt="Aerial view of Irvine, California"
                 fill
                 className="object-cover"
