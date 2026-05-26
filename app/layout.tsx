@@ -1,0 +1,64 @@
+import type { Metadata } from "next";
+import { Poppins, Roboto_Slab } from "next/font/google";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import "./globals.css";
+
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
+
+const robotoSlab = Roboto_Slab({
+  variable: "--font-roboto-slab",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  title: {
+    default: "Security Guard Services in Orange, CA | Rapid Response Security Guards",
+    template: "%s | Rapid Response Security Guards",
+  },
+  description:
+    "Licensed & insured security guard services in Orange and Orange County. Armed and unarmed guards, mobile patrol, fire watch, event security, and construction site security. Get a free quote today.",
+  keywords: [
+    "security guard services Orange",
+    "security company Orange County",
+    "armed security guards California",
+    "mobile patrol security",
+    "fire watch services",
+    "construction site security",
+    "event security Orange County",
+    "PPO 121228",
+  ],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://rrsecurityguards.com",
+    siteName: "Rapid Response Security Guards",
+    title: "Security Guard Services in Orange, CA | Rapid Response Security Guards",
+    description:
+      "Licensed & insured security guard services in Orange and Orange County. Armed and unarmed guards, mobile patrol, fire watch, event security, and construction site security.",
+  },
+  metadataBase: new URL("https://rrsecurityguards.com"),
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" className={`${poppins.variable} ${robotoSlab.variable}`}>
+      <body className="min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-1 pt-20 md:pt-24">{children}</main>
+        <Footer />
+      </body>
+    </html>
+  );
+}
