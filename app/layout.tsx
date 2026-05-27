@@ -38,13 +38,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://rrsecurityguards.com",
+    url: "https://www.rrsecurityguards.com",
     siteName: "Rapid Response Security Guards",
     title: "Security Guard Services in Orange, CA | Rapid Response Security Guards",
     description:
       "Licensed & insured security guard services in Orange and Orange County. Armed and unarmed guards, mobile patrol, fire watch, event security, and construction site security.",
   },
-  metadataBase: new URL("https://rrsecurityguards.com"),
+  metadataBase: new URL("https://www.rrsecurityguards.com"),
 };
 
 export default function RootLayout({
