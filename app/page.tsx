@@ -1,6 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import HeroForm from "@/components/HeroForm";
+
+const LazyHeroForm = dynamic(() => import("@/components/HeroForm"), {
+  loading: () => <div className="h-[300px] animate-pulse bg-white/5 rounded-lg" />,
+});
 
 
 /* ─── Data ─── */
@@ -310,6 +315,7 @@ export default function Home() {
                     src={service.image}
                     alt={service.title}
                     fill
+                    loading="lazy"
                     className="object-cover"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
@@ -371,6 +377,7 @@ export default function Home() {
                     src={service.image}
                     alt={service.title}
                     fill
+                    loading="lazy"
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
@@ -418,6 +425,7 @@ export default function Home() {
             src={`/images/irvine-spectrum.webp`}
             alt="Irvine Spectrum"
             fill
+            loading="lazy"
             className="object-cover"
           />
         </div>
@@ -428,6 +436,7 @@ export default function Home() {
                 src={`/images/irvine-spectrum.webp`}
                 alt="Aerial view of Irvine, California"
                 fill
+                loading="lazy"
                 className="object-cover"
               />
             </div>
@@ -616,6 +625,7 @@ export default function Home() {
                     src={area.image}
                     alt={area.name}
                     fill
+                    loading="lazy"
                     className="object-cover"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   />
@@ -777,7 +787,7 @@ export default function Home() {
               <h3 className="text-xl font-semibold text-white mb-5">
                 Request a Free Security Quote
               </h3>
-              <HeroForm />
+              <LazyHeroForm />
             </div>
           </div>
         </div>
