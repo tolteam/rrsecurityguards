@@ -485,6 +485,7 @@ export default function Home() {
           </div>
 
           {/* Google Reviews Summary */}
+          <div className="flex items-center justify-center gap-3 mb-8">
             <div className="flex items-center gap-1">
               <span className="text-yellow-400 text-lg tracking-wide">★★★★★</span>
             </div>
