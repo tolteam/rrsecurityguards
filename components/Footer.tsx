@@ -59,7 +59,7 @@ export default function Footer() {
                 <p className="text-sm text-gray-400">(949) 992-8491</p>
               </div>
 
-              <p className="mt-4 text-xs text-gray-500">
+              <p className="mt-4 text-xs text-gray-400">
                 PPO #121228 | Licensed &amp; Insured
               </p>
 
@@ -68,7 +68,7 @@ export default function Footer() {
                   href="https://project1r.com/"
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="text-xs text-gray-600 hover:text-gray-400 transition-colors"
+                  className="text-xs text-gray-400 hover:text-gray-200 transition-colors"
                 >
                   Powered by Project1r Studios
                 </a>
@@ -157,20 +157,20 @@ export default function Footer() {
       {/* ── Bottom Bar ── */}
       <div className="border-t border-white/5 bg-[#0a0c0c]">
         <div className="container flex flex-col md:flex-row items-center justify-between gap-3 py-4">
-          <p className="text-xs text-gray-500 text-center md:text-left">
+          <p className="text-xs text-gray-400 text-center md:text-left">
             © {new Date().getFullYear()} Rapid Response Security Guards. All
             rights reserved. Lead Generation by Top Organic Leads.
           </p>
           <div className="flex items-center gap-5">
             <Link
               href="/privacy-policy"
-              className="text-xs text-gray-500 hover:text-gray-300 transition-colors"
+              className="text-xs text-gray-400 hover:text-gray-200 transition-colors"
             >
               Privacy Policy
             </Link>
             <Link
               href="/terms-of-service"
-              className="text-xs text-gray-500 hover:text-gray-300 transition-colors"
+              className="text-xs text-gray-400 hover:text-gray-200 transition-colors"
             >
               Terms of Service
             </Link>
