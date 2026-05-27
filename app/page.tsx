@@ -222,7 +222,7 @@ export default function Home() {
             alt="Security guards protecting property in Orange, California"
             fill
             priority
-            quality={70}
+            quality={50}
             sizes="100vw"
             className="object-cover opacity-30"
           />
