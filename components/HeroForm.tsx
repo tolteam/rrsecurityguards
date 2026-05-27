@@ -111,6 +111,7 @@ export default function HeroForm() {
           className={inputClass}
         />
         <select
+          aria-label="Select a security service"
           required
           value={service}
           onChange={(e) => setService(e.target.value)}
