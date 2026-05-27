@@ -3,7 +3,18 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, ChevronRight } from "lucide-react";
+
+/* Inline replacements for lucide-react Menu and ChevronRight */
+const MenuIcon = ({ size = 24 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <line x1="4" x2="20" y1="12" y2="12" /><line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="18" y2="18" />
+  </svg>
+);
+const ChevronRightIcon = ({ size = 16, className }: { size?: number; className?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="m9 18 6-6-6-6" />
+  </svg>
+);
 
 /* Inline SVG social icons (matching the live Elementor site) */
 const FacebookIcon = () => (
@@ -95,7 +106,7 @@ export default function Header() {
                 <path d="M18 6L6 18M6 6l12 12" />
               </svg>
             ) : (
-              <Menu size={24} />
+              <MenuIcon size={24} />
             )}
           </button>
         </div>
@@ -121,7 +132,7 @@ export default function Header() {
                       className="flex items-center justify-between py-4 text-base font-medium text-[var(--color-text)] border-b border-gray-100 hover:text-[var(--color-primary)] transition-colors"
                     >
                       {link.label}
-                      <ChevronRight size={16} className="text-gray-300" />
+                      <ChevronRightIcon size={16} className="text-gray-300" />
                     </a>
                   </li>
                 ))}
