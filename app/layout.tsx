@@ -15,7 +15,7 @@ const robotoSlab = Roboto_Slab({
   variable: "--font-roboto-slab",
   subsets: ["latin"],
   weight: ["400", "700"],
-  display: "swap",
+  display: "optional",
 });
 
 export const metadata: Metadata = {
