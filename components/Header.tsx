@@ -54,8 +54,8 @@ export default function Header() {
             <Image
               src="/logo.png"
               alt="Rapid Response Security Guards"
-              width={220}
-              height={95}
+              width={140}
+              height={60}
               priority
               className="h-14 md:h-[70px] w-auto object-contain"
             />
