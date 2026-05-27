@@ -2,10 +2,14 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    qualities: [50, 75],
   },
   experimental: {
     inlineCss: true,
+  },
+  turbopack: {
+    resolveAlias: {
+      'next/dist/build/polyfills/polyfill-module': './lib/empty-polyfill.js',
+    },
   },
   async redirects() {
     return [
