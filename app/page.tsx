@@ -315,9 +315,9 @@ export default function Home() {
                   />
                 </div>
                 <div className="p-5">
-                  <h4 className="text-lg font-semibold text-[var(--color-text)] mb-3">
+                  <h3 className="text-lg font-semibold text-[var(--color-text)] mb-3">
                     {service.title}
-                  </h4>
+                  </h3>
                   <ul className="space-y-1.5">
                     {service.features.map((f) => (
                       <li
@@ -376,9 +376,9 @@ export default function Home() {
                   />
                 </div>
                 <div className="p-5">
-                  <h4 className="text-lg font-semibold text-[var(--color-text)] mb-3">
+                  <h3 className="text-lg font-semibold text-[var(--color-text)] mb-3">
                     {service.title}
-                  </h4>
+                  </h3>
                   <ul className="space-y-1.5">
                     {service.features.map((f) => (
                       <li
@@ -726,9 +726,9 @@ export default function Home() {
             </div>
 
             <div className="mt-10 text-center">
-              <h4 className="text-lg font-semibold text-[var(--color-text)] mb-2">
+              <h3 className="text-lg font-semibold text-[var(--color-text)] mb-2">
                 Still have questions?
-              </h4>
+              </h3>
               <p className="text-sm text-[var(--color-text-muted)] mb-4">
                 Our team is ready to help you find the right security solution.
               </p>
