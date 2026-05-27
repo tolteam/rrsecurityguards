@@ -54,6 +54,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${poppins.variable} ${robotoSlab.variable}`}>
+      <head>
+        <link
+          rel="preload"
+          href="/images/hero.webp"
+          as="image"
+          type="image/webp"
+          fetchPriority="high"
+        />
+      </head>
       <body className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-1 pt-20 md:pt-24">{children}</main>
