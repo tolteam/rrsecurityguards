@@ -62,12 +62,12 @@ export default function RootLayout({
           as="image"
           fetchPriority="high"
           imageSrcSet={[
-            "/_next/image?url=%2Fimages%2Fhero.webp&w=640&q=50 640w",
-            "/_next/image?url=%2Fimages%2Fhero.webp&w=750&q=50 750w",
-            "/_next/image?url=%2Fimages%2Fhero.webp&w=828&q=50 828w",
-            "/_next/image?url=%2Fimages%2Fhero.webp&w=1080&q=50 1080w",
-            "/_next/image?url=%2Fimages%2Fhero.webp&w=1200&q=50 1200w",
-            "/_next/image?url=%2Fimages%2Fhero.webp&w=1920&q=50 1920w",
+            "/_next/image?url=%2Fimages%2Fhero.webp&w=640&q=22 640w",
+            "/_next/image?url=%2Fimages%2Fhero.webp&w=750&q=22 750w",
+            "/_next/image?url=%2Fimages%2Fhero.webp&w=828&q=22 828w",
+            "/_next/image?url=%2Fimages%2Fhero.webp&w=1080&q=22 1080w",
+            "/_next/image?url=%2Fimages%2Fhero.webp&w=1200&q=22 1200w",
+            "/_next/image?url=%2Fimages%2Fhero.webp&w=1920&q=22 1920w",
           ].join(", ")}
           imageSizes="100vw"
         />

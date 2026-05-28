@@ -226,7 +226,7 @@ export default function Home() {
             src="/images/hero.webp"
             alt="Security guards protecting property in Orange, California"
             fill
-            quality={50}
+            quality={22}
             sizes="100vw"
             className="object-cover opacity-30"
           />
