@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 31536000,
+    qualities: [50, 75],
     remotePatterns: [
       {
         protocol: 'https',
@@ -16,7 +19,8 @@ const nextConfig: NextConfig = {
   },
   turbopack: {
     resolveAlias: {
-      'next/dist/build/polyfills/polyfill-module': './lib/empty-polyfill.js',
+      'next/dist/build/polyfills/polyfill-module':
+        require('path').resolve(__dirname, 'lib/empty-polyfill.js'),
     },
   },
   webpack: (config, { isServer }) => {

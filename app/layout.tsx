@@ -8,7 +8,8 @@ const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
   weight: ["300", "400", "600"],
-  display: "swap",
+  display: "optional",
+  preload: false,
 });
 
 const robotoSlab = Roboto_Slab({
@@ -16,6 +17,7 @@ const robotoSlab = Roboto_Slab({
   subsets: ["latin"],
   weight: ["400", "700"],
   display: "optional",
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -55,7 +57,20 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${poppins.variable} ${robotoSlab.variable}`}>
       <head>
-        <link rel="preload" as="image" type="image/webp" href="/images/hero.webp" fetchPriority="high" />
+        <link
+          rel="preload"
+          as="image"
+          fetchPriority="high"
+          imageSrcSet={[
+            "/_next/image?url=%2Fimages%2Fhero.webp&w=640&q=50 640w",
+            "/_next/image?url=%2Fimages%2Fhero.webp&w=750&q=50 750w",
+            "/_next/image?url=%2Fimages%2Fhero.webp&w=828&q=50 828w",
+            "/_next/image?url=%2Fimages%2Fhero.webp&w=1080&q=50 1080w",
+            "/_next/image?url=%2Fimages%2Fhero.webp&w=1200&q=50 1200w",
+            "/_next/image?url=%2Fimages%2Fhero.webp&w=1920&q=50 1920w",
+          ].join(", ")}
+          imageSizes="100vw"
+        />
       </head>
       <body className="min-h-screen flex flex-col">
         <Header />
