@@ -56,22 +56,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${poppins.variable} ${robotoSlab.variable}`}>
-      <head>
-        <link
-          rel="preload"
-          as="image"
-          fetchPriority="high"
-          imageSrcSet={[
-            "/_next/image?url=%2Fimages%2Fhero.webp&w=640&q=22 640w",
-            "/_next/image?url=%2Fimages%2Fhero.webp&w=750&q=22 750w",
-            "/_next/image?url=%2Fimages%2Fhero.webp&w=828&q=22 828w",
-            "/_next/image?url=%2Fimages%2Fhero.webp&w=1080&q=22 1080w",
-            "/_next/image?url=%2Fimages%2Fhero.webp&w=1200&q=22 1200w",
-            "/_next/image?url=%2Fimages%2Fhero.webp&w=1920&q=22 1920w",
-          ].join(", ")}
-          imageSizes="100vw"
-        />
-      </head>
       <body className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-1 pt-20 md:pt-24">{children}</main>
