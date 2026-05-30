@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins, Roboto_Slab } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CallRailLoader from "@/components/callrail-loader";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -60,6 +61,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-1 pt-20 md:pt-24">{children}</main>
         <Footer />
+        <CallRailLoader />
       </body>
     </html>
   );
