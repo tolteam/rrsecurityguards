@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function HeroForm() {
   const [captchaA, setCaptchaA] = useState(0);
@@ -14,10 +14,69 @@ export default function HeroForm() {
   const [service, setService] = useState("Mobile Patrol");
   const [details, setDetails] = useState("");
 
+  const submittedRef = useRef(false);
+  const abandonedSentRef = useRef(false);
+
   useEffect(() => {
     setCaptchaA(Math.floor(Math.random() * 9) + 1);
     setCaptchaB(Math.floor(Math.random() * 9) + 1);
   }, []);
+
+  // --- Abandoned form detection ---
+  useEffect(() => {
+    const sendAbandonment = () => {
+      if (submittedRef.current || abandonedSentRef.current) return;
+
+      const currentName = nameRef.current;
+      const currentEmail = emailRef.current;
+      const currentPhone = phoneRef.current;
+
+      const hasData = !!(currentName || currentEmail || currentPhone);
+      if (!hasData) return;
+
+      abandonedSentRef.current = true;
+
+      const payload = JSON.stringify({
+        name: currentName,
+        email: currentEmail,
+        phone: currentPhone,
+        service: serviceRef.current,
+        details: detailsRef.current,
+        abandoned: true,
+        pageUrl: window.location.href,
+      });
+
+      navigator.sendBeacon(
+        "/api/contact",
+        new Blob([payload], { type: "application/json" })
+      );
+    };
+
+    const onBeforeUnload = () => sendAbandonment();
+    const onVisibilityChange = () => {
+      if (document.visibilityState === "hidden") sendAbandonment();
+    };
+
+    window.addEventListener("beforeunload", onBeforeUnload);
+    document.addEventListener("visibilitychange", onVisibilityChange);
+    return () => {
+      window.removeEventListener("beforeunload", onBeforeUnload);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+    };
+  }, []);
+
+  // Keep refs in sync with state so the abandonment handler reads fresh values
+  const nameRef = useRef(name);
+  const emailRef = useRef(email);
+  const phoneRef = useRef(phone);
+  const serviceRef = useRef(service);
+  const detailsRef = useRef(details);
+
+  useEffect(() => { nameRef.current = name; }, [name]);
+  useEffect(() => { emailRef.current = email; }, [email]);
+  useEffect(() => { phoneRef.current = phone; }, [phone]);
+  useEffect(() => { serviceRef.current = service; }, [service]);
+  useEffect(() => { detailsRef.current = details; }, [details]);
 
   const resetCaptcha = () => {
     setCaptchaA(Math.floor(Math.random() * 9) + 1);
@@ -40,11 +99,12 @@ export default function HeroForm() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, phone, service, details }),
+        body: JSON.stringify({ name, email, phone, service, details, pageUrl: window.location.href }),
       });
 
       if (!res.ok) throw new Error("Failed to send");
 
+      submittedRef.current = true;
       setStatus("success");
       setName("");
       setEmail("");
