@@ -34,34 +34,25 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      {
-        source: "/services",
-        destination: "/#services",
-        permanent: true,
-      },
+      // Legacy WordPress URL redirects
       {
         source: "/licensed-security-guard-services-irvine-ca",
-        destination: "/#services",
-        permanent: true,
-      },
-      {
-        source: "/about",
-        destination: "/#about",
+        destination: "/services",
         permanent: true,
       },
       {
         source: "/about-security-company-irvine",
-        destination: "/#about",
-        permanent: true,
-      },
-      {
-        source: "/contact",
-        destination: "/#contact",
+        destination: "/about",
         permanent: true,
       },
       {
         source: "/contact-security-company",
-        destination: "/#contact",
+        destination: "/quote",
+        permanent: true,
+      },
+      {
+        source: "/contact",
+        destination: "/quote",
         permanent: true,
       },
     ];

@@ -2,23 +2,32 @@ import Link from "next/link";
 import Image from "next/image";
 
 const serviceAreas = [
-  "Orange County",
-  "Riverside County",
-  "San Diego County",
-  "San Bernardino County",
-  "Los Angeles County",
-  "Sacramento County",
+  { label: "Orange County", href: "/locations/orange-county" },
+  { label: "Riverside County", href: "/locations/riverside-county" },
+  { label: "San Diego County", href: "/locations/san-diego-county" },
+  { label: "San Bernardino County", href: "/locations/san-bernardino-county" },
+  { label: "Los Angeles County", href: "/locations/los-angeles-county" },
+  { label: "Sacramento County", href: "/locations/sacramento-county" },
 ];
 
-const popularCities1 = ["Irvine", "Anaheim", "Santa Ana", "Costa Mesa"];
-const popularCities2 = ["Newport Beach", "Tustin", "Riverside"];
+const popularCities1 = [
+  { label: "Irvine", href: "/locations/irvine" },
+  { label: "Anaheim", href: "/locations/anaheim" },
+  { label: "Santa Ana", href: "/locations/santa-ana" },
+  { label: "Costa Mesa", href: "/locations/costa-mesa" },
+];
+const popularCities2 = [
+  { label: "Newport Beach", href: "/locations/newport-beach" },
+  { label: "Tustin", href: "/locations/tustin" },
+  { label: "Riverside", href: "/locations/riverside" },
+];
 
 const quickLinks = [
-  { href: "#hero", label: "Home" },
-  { href: "#services", label: "Services" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
-  { href: "sms:19499928491", label: "Text Us" },
+  { href: "/", label: "Home" },
+  { href: "/services", label: "Services" },
+  { href: "/industries", label: "Industries" },
+  { href: "/about", label: "About" },
+  { href: "tel:19499928491", label: "Call (949) 992-8491" },
 ];
 
 export default function Footer() {
@@ -82,12 +91,12 @@ export default function Footer() {
               </h4>
               <ul className="space-y-2.5">
                 {serviceAreas.map((area) => (
-                  <li key={area}>
+                  <li key={area.href}>
                     <Link
-                      href="#contact"
+                      href={area.href}
                       className="text-sm text-gray-400 hover:text-white transition-colors"
                     >
-                      {area}
+                      {area.label}
                     </Link>
                   </li>
                 ))}
@@ -101,12 +110,12 @@ export default function Footer() {
               </h4>
               <ul className="space-y-2.5">
                 {popularCities1.map((city) => (
-                  <li key={city}>
+                  <li key={city.href}>
                     <Link
-                      href="#contact"
+                      href={city.href}
                       className="text-sm text-gray-400 hover:text-white transition-colors"
                     >
-                      {city}
+                      {city.label}
                     </Link>
                   </li>
                 ))}
@@ -120,12 +129,12 @@ export default function Footer() {
               </h4>
               <ul className="space-y-2.5">
                 {popularCities2.map((city) => (
-                  <li key={city}>
+                  <li key={city.href}>
                     <Link
-                      href="#contact"
+                      href={city.href}
                       className="text-sm text-gray-400 hover:text-white transition-colors"
                     >
-                      {city}
+                      {city.label}
                     </Link>
                   </li>
                 ))}

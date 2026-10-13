@@ -1,13 +1,18 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-/* Inline replacements for lucide-react Menu and ChevronRight */
+/* ── Inline SVG Icons ── */
 const MenuIcon = ({ size = 24 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <line x1="4" x2="20" y1="12" y2="12" /><line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="18" y2="18" />
+  </svg>
+);
+const ChevronDownIcon = ({ size = 14, className }: { size?: number; className?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="m6 9 6 6 6-6" />
   </svg>
 );
 const ChevronRightIcon = ({ size = 16, className }: { size?: number; className?: string }) => (
@@ -16,27 +21,116 @@ const ChevronRightIcon = ({ size = 16, className }: { size?: number; className?:
   </svg>
 );
 
-/* Inline SVG social icons (matching the live Elementor site) */
-const FacebookIcon = () => (
-  <svg viewBox="0 0 512 512" fill="currentColor" className="w-3.5 h-3.5"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
-);
-const InstagramIcon = () => (
-  <svg viewBox="0 0 448 512" fill="currentColor" className="w-3.5 h-3.5"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
-);
-const XTwitterIcon = () => (
-  <svg viewBox="0 0 512 512" fill="currentColor" className="w-3.5 h-3.5"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
-);
-
-const navLinks = [
-  { href: "#hero", label: "Home" },
-  { href: "#services", label: "Services" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
+/* ── Nav Data ── */
+const serviceLinks = [
+  { href: "/services/armed-security", label: "Armed Security" },
+  { href: "/services/unarmed-security", label: "Unarmed Security" },
+  { href: "/services/mobile-patrol", label: "Mobile Patrol" },
+  { href: "/services/fire-watch", label: "Fire Watch" },
+  { href: "/services/construction-security", label: "Construction Security" },
+  { href: "/services/event-security", label: "Event Security" },
+  { href: "/services/executive-protection", label: "Executive Protection" },
+  { href: "/services/residential-security", label: "Residential Security" },
+  { href: "/services/loss-prevention", label: "Loss Prevention" },
 ];
+
+const industryLinks = [
+  { href: "/industries/construction", label: "Construction" },
+  { href: "/industries/retail", label: "Retail" },
+  { href: "/industries/healthcare", label: "Healthcare" },
+  { href: "/industries/hospitality-hotels", label: "Hotels & Hospitality" },
+  { href: "/industries/residential-hoa", label: "Residential & HOA" },
+  { href: "/industries/warehouses-logistics", label: "Warehouses & Logistics" },
+  { href: "/industries/office-buildings", label: "Office Buildings" },
+  { href: "/industries/religious-institutions", label: "Religious Institutions" },
+];
+
+const locationLinks = [
+  { href: "/locations/orange-county", label: "Orange County" },
+  { href: "/locations/los-angeles-county", label: "Los Angeles County" },
+  { href: "/locations/riverside-county", label: "Riverside County" },
+  { href: "/locations/san-diego-county", label: "San Diego County" },
+  { href: "/locations/san-bernardino-county", label: "San Bernardino County" },
+  { href: "/locations/sacramento-county", label: "Sacramento County" },
+  { href: "/locations/san-francisco-bay-area", label: "SF Bay Area" },
+];
+
+interface DropdownMenuProps {
+  id: string;
+  label: string;
+  href: string; // The hub page link
+  items: { href: string; label: string }[];
+  isOpen: boolean;
+  onToggle: () => void;
+  onClose: () => void;
+}
+
+function DropdownMenu({ id, label, href, items, isOpen, onToggle, onClose }: DropdownMenuProps) {
+  const ref = useRef<HTMLLIElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        onClose();
+      }
+    };
+    if (isOpen) document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isOpen, onClose]);
+
+  return (
+    <li ref={ref} className="relative" id={`nav-${id}`}>
+      <button
+        aria-expanded={isOpen}
+        aria-haspopup="true"
+        aria-controls={`dropdown-${id}`}
+        onClick={onToggle}
+        className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-[var(--color-text-muted)] tracking-wide hover:text-[var(--color-primary)] transition-colors"
+      >
+        {label}
+        <ChevronDownIcon
+          size={14}
+          className={`transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+        />
+      </button>
+
+      {isOpen && (
+        <div
+          id={`dropdown-${id}`}
+          role="menu"
+          className="absolute top-full left-1/2 -translate-x-1/2 mt-1 bg-white border border-gray-100 rounded-xl shadow-xl py-2 min-w-[220px] z-50 animate-in fade-in slide-in-from-top-2 duration-150"
+        >
+          {/* View All link */}
+          <Link
+            href={href}
+            onClick={onClose}
+            className="flex items-center px-4 py-2.5 text-xs font-bold uppercase tracking-widest text-[var(--color-primary)] hover:bg-gray-50 transition-colors border-b border-gray-100 mb-1"
+            role="menuitem"
+          >
+            View All {label}
+          </Link>
+          {items.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={onClose}
+              role="menuitem"
+              className="flex items-center px-4 py-2.5 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-primary)] hover:bg-gray-50 transition-colors"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      )}
+    </li>
+  );
+}
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -44,11 +138,23 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
+
+  const toggleDropdown = (id: string) =>
+    setOpenDropdown((prev) => (prev === id ? null : id));
+  const closeDropdown = () => setOpenDropdown(null);
+
+  const toggleMobileSection = (id: string) =>
+    setMobileExpanded((prev) => (prev === id ? null : id));
+
+  const navDropdowns = [
+    { id: "services", label: "Services", href: "/services", items: serviceLinks },
+    { id: "industries", label: "Industries", href: "/industries", items: industryLinks },
+    { id: "locations", label: "Locations", href: "/locations", items: locationLinks },
+  ];
 
   return (
     <header
@@ -56,7 +162,6 @@ export default function Header() {
         scrolled ? "shadow-lg" : "shadow-sm"
       }`}
     >
-
       {/* ── Main Navigation ── */}
       <nav className="bg-white">
         <div className="container flex items-center justify-between gap-6 h-20 md:h-24">
@@ -74,25 +179,51 @@ export default function Header() {
 
           {/* Desktop Links */}
           <ul className="hidden lg:flex items-center gap-0 flex-1 justify-center">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="px-4 py-2 text-sm font-medium text-[var(--color-text-muted)] tracking-wide hover:text-[var(--color-primary)] transition-colors"
-                >
-                  {link.label}
-                </a>
-              </li>
+            <li>
+              <Link
+                href="/"
+                className="px-4 py-2 text-sm font-medium text-[var(--color-text-muted)] tracking-wide hover:text-[var(--color-primary)] transition-colors"
+              >
+                Home
+              </Link>
+            </li>
+            {navDropdowns.map((d) => (
+              <DropdownMenu
+                key={d.id}
+                id={d.id}
+                label={d.label}
+                href={d.href}
+                items={d.items}
+                isOpen={openDropdown === d.id}
+                onToggle={() => toggleDropdown(d.id)}
+                onClose={closeDropdown}
+              />
             ))}
+            <li>
+              <Link
+                href="/about"
+                className="px-4 py-2 text-sm font-medium text-[var(--color-text-muted)] tracking-wide hover:text-[var(--color-primary)] transition-colors"
+              >
+                About
+              </Link>
+            </li>
           </ul>
 
-          {/* Desktop CTA */}
-          <a
-            href="#contact"
-            className="hidden lg:inline-flex btn btn-primary text-sm"
-          >
-            Get a Quote
-          </a>
+          {/* Desktop CTAs */}
+          <div className="hidden lg:flex items-center gap-3">
+            <a
+              href="tel:19499928491"
+              className="text-sm font-semibold text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] transition-colors"
+            >
+              (949) 992-8491
+            </a>
+            <Link
+              href="#hero"
+              className="btn btn-primary text-sm"
+            >
+              Get a Quote
+            </Link>
+          </div>
 
           {/* Mobile Hamburger */}
           <button
@@ -121,29 +252,84 @@ export default function Header() {
             onClick={() => setMobileOpen(false)}
           />
           {/* Drawer */}
-          <div className="fixed top-20 left-0 right-0 bg-white z-50 lg:hidden border-t border-gray-100 shadow-xl animate-in slide-in-from-top-2">
+          <div className="fixed top-20 left-0 right-0 bg-white z-50 lg:hidden border-t border-gray-100 shadow-xl animate-in slide-in-from-top-2 max-h-[80vh] overflow-y-auto">
             <div className="container py-4">
               <ul className="flex flex-col">
-                {navLinks.map((link) => (
-                  <li key={link.href}>
-                    <a
-                      href={link.href}
-                      onClick={() => setMobileOpen(false)}
-                      className="flex items-center justify-between py-4 text-base font-medium text-[var(--color-text)] border-b border-gray-100 hover:text-[var(--color-primary)] transition-colors"
+                {/* Home */}
+                <li>
+                  <Link
+                    href="/"
+                    onClick={() => setMobileOpen(false)}
+                    className="flex items-center justify-between py-4 text-base font-medium text-[var(--color-text)] border-b border-gray-100 hover:text-[var(--color-primary)] transition-colors"
+                  >
+                    Home
+                    <ChevronRightIcon size={16} className="text-gray-300" />
+                  </Link>
+                </li>
+
+                {/* Expandable Sections */}
+                {navDropdowns.map((d) => (
+                  <li key={d.id}>
+                    <button
+                      onClick={() => toggleMobileSection(d.id)}
+                      className="w-full flex items-center justify-between py-4 text-base font-medium text-[var(--color-text)] border-b border-gray-100 hover:text-[var(--color-primary)] transition-colors"
+                      aria-expanded={mobileExpanded === d.id}
                     >
-                      {link.label}
-                      <ChevronRightIcon size={16} className="text-gray-300" />
-                    </a>
+                      {d.label}
+                      <ChevronDownIcon
+                        size={16}
+                        className={`text-gray-400 transition-transform duration-200 ${
+                          mobileExpanded === d.id ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                    {mobileExpanded === d.id && (
+                      <ul className="bg-gray-50 border-b border-gray-100 py-2">
+                        <li>
+                          <Link
+                            href={d.href}
+                            onClick={() => setMobileOpen(false)}
+                            className="block px-4 py-2.5 text-sm font-bold text-[var(--color-primary)]"
+                          >
+                            View All {d.label}
+                          </Link>
+                        </li>
+                        {d.items.map((item) => (
+                          <li key={item.href}>
+                            <Link
+                              href={item.href}
+                              onClick={() => setMobileOpen(false)}
+                              className="block px-4 py-2.5 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-primary)]"
+                            >
+                              {item.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </li>
                 ))}
+
+                {/* About */}
+                <li>
+                  <Link
+                    href="/about"
+                    onClick={() => setMobileOpen(false)}
+                    className="flex items-center justify-between py-4 text-base font-medium text-[var(--color-text)] border-b border-gray-100 hover:text-[var(--color-primary)] transition-colors"
+                  >
+                    About
+                    <ChevronRightIcon size={16} className="text-gray-300" />
+                  </Link>
+                </li>
               </ul>
-              <a
-                href="#contact"
+
+              <Link
+                href="#hero"
                 onClick={() => setMobileOpen(false)}
                 className="btn btn-primary w-full mt-5 text-center"
               >
-                Get a Quote
-              </a>
+                Get a Free Quote
+              </Link>
               <a
                 href="tel:19499928491"
                 className="btn btn-outline w-full mt-3 text-center"

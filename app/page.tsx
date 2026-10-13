@@ -24,6 +24,7 @@ const LazyHeroForm = dynamic(() => import("@/components/HeroForm"), {
 const services = [
   {
     title: "Armed Security",
+    slug: "armed-security",
     image: `/images/services/armed-security.webp`,
     features: [
       "24/7 Armed Protection",
@@ -34,6 +35,7 @@ const services = [
   },
   {
     title: "Unarmed Security Guard",
+    slug: "unarmed-security",
     image: `/images/services/unarmed-security.webp`,
     features: [
       "Professional Appearance",
@@ -44,6 +46,7 @@ const services = [
   },
   {
     title: "Mobile Patrol Security",
+    slug: "mobile-patrol",
     image: `/images/services/mobile-patrol.webp`,
     features: [
       "Multi-Location Coverage",
@@ -54,6 +57,7 @@ const services = [
   },
   {
     title: "Fire Watch Services",
+    slug: "fire-watch",
     image: `/images/services/fire-watch.webp`,
     features: [
       "OSHA Compliance",
@@ -64,6 +68,7 @@ const services = [
   },
   {
     title: "Construction Site Security",
+    slug: "construction-security",
     image: `/images/services/construction-security.webp`,
     features: [
       "Equipment Protection",
@@ -74,6 +79,7 @@ const services = [
   },
   {
     title: "Event Security",
+    slug: "event-security",
     image: `/images/services/event-security.webp`,
     features: [
       "Crowd Management",
@@ -84,6 +90,7 @@ const services = [
   },
   {
     title: "Executive Protection",
+    slug: "executive-protection",
     image: `/images/services/executive-protection.webp`,
     features: [
       "VIP & Personal Protection",
@@ -97,6 +104,7 @@ const services = [
 const additionalServices = [
   {
     title: "Residential Security",
+    slug: "residential-security",
     image: `/images/services/residential-security.webp`,
     features: [
       "Gated Communities & HOAs",
@@ -107,6 +115,7 @@ const additionalServices = [
   },
   {
     title: "Commercial Security",
+    slug: "unarmed-security",
     image: `/images/services/commercial-security.webp`,
     features: [
       "Construction Sites",
@@ -119,6 +128,7 @@ const additionalServices = [
   },
   {
     title: "Event Security",
+    slug: "event-security",
     image: `/images/services/event-security-2.webp`,
     features: [
       "Private Events & Parties",
@@ -132,42 +142,49 @@ const additionalServices = [
 const serviceAreas = [
   {
     name: "Orange County",
+    slug: "orange-county",
     image: `/images/areas/orange-county.webp`,
     description:
       "We provide professional security guard services throughout Orange County, including Irvine, Anaheim, Santa Ana, Costa Mesa, Huntington Beach, Newport Beach, Tustin, Orange, Fullerton, and Garden Grove.",
   },
   {
     name: "Riverside County",
+    slug: "riverside-county",
     image: `/images/areas/riverside-county.webp`,
     description:
       "Security coverage is available throughout Riverside County, including Riverside, Corona, Moreno Valley, Temecula, Murrieta, Palm Desert, and Indio.",
   },
   {
     name: "San Diego County",
+    slug: "san-diego-county",
     image: `/images/areas/san-diego-county.webp`,
     description:
       "We serve clients across San Diego County, including San Diego, Chula Vista, Oceanside, Escondido, Carlsbad, El Cajon, and La Mesa.",
   },
   {
     name: "San Bernardino County",
+    slug: "san-bernardino-county",
     image: `/images/areas/san-bernardino-county.webp`,
     description:
       "Rapid Response Security Guards provides security services throughout San Bernardino County, including San Bernardino, Ontario, Rancho Cucamonga, Fontana, Victorville, Rialto, and Chino.",
   },
   {
     name: "Los Angeles County",
+    slug: "los-angeles-county",
     image: `/images/areas/los-angeles-county.webp`,
     description:
       "Rapid Response Security Guards delivers security services across Los Angeles County, including Los Angeles, Long Beach, Glendale, Pasadena, Torrance, Inglewood, Santa Monica, and West Hollywood.",
   },
   {
     name: "Sacramento County",
+    slug: "sacramento-county",
     image: `/images/areas/sacramento-county.webp`,
     description:
       "We also provide security services in Sacramento County, including Sacramento, Elk Grove, Folsom, Rancho Cordova, Citrus Heights, and Galt.",
   },
   {
     name: "San Francisco Bay Area",
+    slug: "san-francisco-bay-area",
     image: `/images/areas/san-francisco-bay.webp`,
     description:
       "We provide professional security guard services throughout the San Francisco Bay Area, including San Francisco, Oakland, San Jose, Fremont, Hayward, Berkeley, Palo Alto, and Mountain View.",
@@ -206,7 +223,7 @@ const faqs = [
 ];
 
 const whyChooseUs = [
-  "Licensed and trained security guards in California",
+  "Licensed and trained security guards in Southern California",
   "Fast deployment across Orange and Orange County",
   "Professional appearance and strong communication",
   "Custom security plans for every property type",
@@ -319,9 +336,10 @@ export default function Home() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service) => (
-              <div
+              <Link
                 key={service.title}
-                className="card-hover bg-white rounded-xl overflow-hidden border border-gray-100"
+                href={`/services/${service.slug}`}
+                className="card-hover bg-white rounded-xl overflow-hidden border border-gray-100 group block"
               >
                 <div className="relative h-[340px]">
                   <Image
@@ -329,12 +347,12 @@ export default function Home() {
                     alt={service.title}
                     fill
                     loading="lazy"
-                    className="object-cover"
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                 </div>
                 <div className="p-5">
-                  <h3 className="text-lg font-semibold text-[var(--color-text)] mb-3">
+                  <h3 className="text-lg font-semibold text-[var(--color-text)] mb-3 group-hover:text-[var(--color-primary)] transition-colors">
                     {service.title}
                   </h3>
                   <ul className="space-y-1.5">
@@ -350,14 +368,11 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
-                  <Link
-                    href="#contact"
-                    className="btn btn-primary w-full mt-5 text-sm"
-                  >
-                    Get Started
-                  </Link>
+                  <span className="btn btn-primary w-full mt-5 text-sm text-center block">
+                    Learn More →
+                  </span>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -383,9 +398,10 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-6">
             {additionalServices.map((service) => (
-              <div
+              <Link
                 key={service.title}
-                className="card-hover bg-white rounded-xl overflow-hidden border border-gray-100"
+                href={`/services/${service.slug}`}
+                className="card-hover bg-white rounded-xl overflow-hidden border border-gray-100 group block"
               >
                 <div className="relative h-[340px]">
                   <Image
@@ -393,12 +409,12 @@ export default function Home() {
                     alt={service.title}
                     fill
                     loading="lazy"
-                    className="object-cover"
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </div>
                 <div className="p-5">
-                  <h3 className="text-lg font-semibold text-[var(--color-text)] mb-3">
+                  <h3 className="text-lg font-semibold text-[var(--color-text)] mb-3 group-hover:text-[var(--color-primary)] transition-colors">
                     {service.title}
                   </h3>
                   <ul className="space-y-1.5">
@@ -414,8 +430,11 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
+                  <span className="inline-block mt-4 text-sm font-semibold text-[var(--color-primary)] group-hover:underline">
+                    Learn More →
+                  </span>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
@@ -641,9 +660,10 @@ export default function Home() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {serviceAreas.map((area) => (
-              <div
+              <Link
                 key={area.name}
-                className="card-hover bg-white rounded-xl overflow-hidden border border-gray-100"
+                href={`/locations/${area.slug}`}
+                className="card-hover bg-white rounded-xl overflow-hidden border border-gray-100 group block"
               >
                 <div className="relative h-48">
                   <Image
@@ -651,11 +671,11 @@ export default function Home() {
                     alt={area.name}
                     fill
                     loading="lazy"
-                    className="object-cover"
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <h3 className="absolute bottom-3 left-4 text-lg font-semibold text-white">
+                  <h3 className="absolute bottom-3 left-4 text-lg font-semibold text-white group-hover:text-[var(--color-primary)] transition-colors">
                     {area.name}
                   </h3>
                 </div>
@@ -663,8 +683,11 @@ export default function Home() {
                   <p className="text-sm text-[var(--color-text-muted)] font-light leading-relaxed">
                     {area.description}
                   </p>
+                  <span className="inline-block mt-3 text-sm font-semibold text-[var(--color-primary)] group-hover:underline">
+                    View Cities →
+                  </span>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
