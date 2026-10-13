@@ -47,12 +47,12 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/contact-security-company",
-        destination: "/quote",
+        destination: "/#contact",
         permanent: true,
       },
       {
         source: "/contact",
-        destination: "/quote",
+        destination: "/#contact",
         permanent: true,
       },
     ];
