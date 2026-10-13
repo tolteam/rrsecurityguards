@@ -6,6 +6,7 @@ import { buildPageMetadata } from "@/lib/seo";
 import { SERVICE_BY_SLUG } from "@/data/services";
 import { SERVICE_SLUGS } from "@/lib/routes";
 import HeroWithForm from "@/components/HeroWithForm";
+import { ARMED_VS_UNARMED_ARTICLE } from "@/data/articles";
 
 export function generateStaticParams() {
   return SERVICE_SLUGS.map((slug) => ({ slug }));
@@ -126,6 +127,20 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           </div>
         </div>
       </section>
+
+      {(slug === "armed-security" || slug === "unarmed-security") && (
+        <section className="section-sm bg-white border-t border-gray-100">
+          <div className="container max-w-4xl">
+            <h2 className="text-2xl font-bold mb-3 text-dark">Related Guide</h2>
+            <p className="text-gray-600 text-lg">
+              Deciding between armed and unarmed coverage? Read{" "}
+              <Link href={ARMED_VS_UNARMED_ARTICLE.path} className="text-primary underline font-medium">
+                Armed vs. Unarmed Security Guards in Orange County
+              </Link>.
+            </p>
+          </div>
+        </section>
+      )}
 
       {/* Final CTA */}
       <section className="section bg-primary text-white text-center content-lazy">

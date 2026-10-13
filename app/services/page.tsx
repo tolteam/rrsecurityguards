@@ -3,6 +3,7 @@ import Link from "next/link";
 import { CheckCircle, Shield, PhoneCall, ArrowRight } from "lucide-react";
 import { buildPageMetadata } from "@/lib/seo";
 import { SERVICES } from "@/data/services";
+import { ARMED_VS_UNARMED_ARTICLE } from "@/data/articles";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Security Guard Services in Southern California | Rapid Response Security Guards",
@@ -66,6 +67,20 @@ export default function ServicesHubPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Guides */}
+      <section className="section-sm bg-white border-t border-gray-100">
+        <div className="container max-w-4xl">
+          <h2 className="text-2xl md:text-3xl font-bold mb-3 text-dark">Security Guides</h2>
+          <p className="text-gray-600 mb-4">
+            Not sure which service fits? Read{" "}
+            <Link href={ARMED_VS_UNARMED_ARTICLE.path} className="text-primary underline font-medium">
+              Armed vs. Unarmed Security Guards in Orange County
+            </Link>{" "}
+            to match the level of protection to your risk.
+          </p>
         </div>
       </section>
 

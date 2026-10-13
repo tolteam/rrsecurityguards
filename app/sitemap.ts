@@ -3,6 +3,7 @@ import { SERVICES } from '@/data/services';
 import { INDUSTRIES } from '@/data/industries';
 import { COUNTIES, CITIES } from '@/data/locations';
 import { SERVICE_SLUGS } from '@/lib/routes';
+import { ARMED_VS_UNARMED_ARTICLE } from '@/data/articles';
 
 const BASE_URL = 'https://www.rrsecurityguards.com';
 
@@ -55,6 +56,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly' as const,
     priority: 0.85,
   }));
+
+  // ── Guides (silo children of /services) ──
+  const guidePages: MetadataRoute.Sitemap = [
+    {
+      url: `${BASE_URL}${ARMED_VS_UNARMED_ARTICLE.path}`,
+      lastModified: new Date(ARMED_VS_UNARMED_ARTICLE.datePublished),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+  ];
 
   // ── Industries Hub ──
   const industriesHub: MetadataRoute.Sitemap = [
@@ -114,6 +125,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...staticPages,
     ...servicesHub,
     ...servicePages,
+    ...guidePages,
     ...industriesHub,
     ...industryPages,
     ...locationsHub,
