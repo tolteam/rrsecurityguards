@@ -553,7 +553,7 @@ export const SERVICES: ServiceData[] = [
       "Expert loss prevention officers for retail stores, shopping centers, and warehouses across California. Reduce shrink, deter shoplifting, and protect your bottom line.",
     heroTagline:
       "Specialized loss prevention officers who reduce retail shrink, deter shoplifting, and protect your inventory without disrupting the customer experience.",
-    image: `/images/services/loss-prevention.webp`,
+    image: `/images/services/commercial-security.webp`,
     features: [
       "Uniformed & Plainclothes Officers",
       "Shoplifting Deterrence & Apprehension",
