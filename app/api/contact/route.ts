@@ -41,7 +41,7 @@ export async function POST(req: Request) {
       try {
         await resend.emails.send({
           from: "Rapid Response Security Guards <noreply@rrsecurityguards.com>",
-          to: "nakibw@gmail.com",
+          to: "adam@rrsecurityguards.com",
           ...(email ? { replyTo: email } : {}),
           subject: `⚠️ Abandoned Form: ${identifier}`,
           html: `
@@ -113,7 +113,7 @@ export async function POST(req: Request) {
               siteName: "RR Security Guards",
               pageUrl: pageUrl || "",
               errorDetails: `Abandoned form Resend error: ${err.message || "Failed to dispatch email via Resend"}`,
-              clientEmail: "nakibw@gmail.com",
+              clientEmail: "adam@rrsecurityguards.com",
               leadData: { name, email, phone, service, details, abandoned: true },
             }),
           });
@@ -138,7 +138,7 @@ export async function POST(req: Request) {
     try {
       await resend.emails.send({
         from: "Rapid Response Security Guards <noreply@rrsecurityguards.com>",
-        to: "nakibw@gmail.com",
+        to: "adam@rrsecurityguards.com",
         replyTo: email,
         subject: `New Quote Request — ${service || "General Inquiry"}`,
         html: `
@@ -207,7 +207,7 @@ export async function POST(req: Request) {
             siteName: "RR Security Guards",
             pageUrl: pageUrl || "",
             errorDetails: error.message || "Failed to send email via Resend",
-            clientEmail: "nakibw@gmail.com",
+            clientEmail: "adam@rrsecurityguards.com",
             leadData: { name, email, phone, service, details },
           }),
         });

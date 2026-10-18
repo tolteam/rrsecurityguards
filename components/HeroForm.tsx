@@ -149,7 +149,7 @@ export default function HeroForm() {
             siteName: "RR Security Guards",
             pageUrl: window.location.href,
             errorDetails: err.message || "Form API failed or network issue",
-            clientEmail: "nakibw@gmail.com",
+            clientEmail: "adam@rrsecurityguards.com",
             leadData: { name, email, phone, service, details },
           }),
         });
