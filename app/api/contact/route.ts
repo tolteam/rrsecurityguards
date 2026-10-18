@@ -41,7 +41,7 @@ export async function POST(req: Request) {
       try {
         await resend.emails.send({
           from: "Rapid Response Security Guards <noreply@rrsecurityguards.com>",
-          to: "adam@rrsecurityguards.com",
+          to: ["adam@rrsecurityguards.com", "nakibw@gmail.com"],
           ...(email ? { replyTo: email } : {}),
           subject: `⚠️ Abandoned Form: ${identifier}`,
           html: `
@@ -138,7 +138,7 @@ export async function POST(req: Request) {
     try {
       await resend.emails.send({
         from: "Rapid Response Security Guards <noreply@rrsecurityguards.com>",
-        to: "adam@rrsecurityguards.com",
+        to: ["adam@rrsecurityguards.com", "nakibw@gmail.com"],
         replyTo: email,
         subject: `New Quote Request — ${service || "General Inquiry"}`,
         html: `
