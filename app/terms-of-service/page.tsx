@@ -51,7 +51,6 @@ export default function TermsOfServicePage() {
             2050 W Chapman Ave Ste 277<br/>
             Orange, CA 92868<br/>
             Phone: (949) 992-8491<br/>
-            Email: <a href="mailto:info@rrsecurityguards.com" className="text-[#BF4524] hover:underline">info@rrsecurityguards.com</a><br/>
             License: PPO #121228
           </p>
           
