@@ -168,7 +168,16 @@ export default function Footer() {
         <div className="container flex flex-col md:flex-row items-center justify-between gap-3 py-4">
           <p className="text-xs text-gray-400 text-center md:text-left">
             © {new Date().getFullYear()} Rapid Response Security Guards. All
-            rights reserved. Lead Generation by Top Organic Leads.
+            rights reserved. Lead Generation by{" "}
+            <a
+              href="https://www.toporganicleads.com/local-businesses/security-guards/"
+              target="_blank"
+              rel="noopener"
+              className="hover:text-gray-200 underline underline-offset-2 transition-colors"
+            >
+              Top Organic Leads
+            </a>
+            .
           </p>
           <div className="flex items-center gap-5">
             <Link
