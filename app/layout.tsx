@@ -4,7 +4,6 @@ import { Suspense } from "react";
 import Script from "next/script";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import CallRailLoader from "@/components/callrail-loader";
 import "./globals.css";
 
 
@@ -69,7 +68,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-1 pt-20 md:pt-24">{children}</main>
         <Footer />
-        <CallRailLoader />
+        <Script src="/tn-swap.js" strategy="afterInteractive" />
         <Script
           src="https://www.despora.ai/despora-pixel.js"
           data-project="rrsecurityguards"
