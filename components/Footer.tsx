@@ -27,7 +27,7 @@ const quickLinks = [
   { href: "/services", label: "Services" },
   { href: "/industries", label: "Industries" },
   { href: "/about", label: "About" },
-  { href: "tel:19499928491", label: "Call (949) 992-8491" },
+  { href: "tel:19498187712", label: "Call (949) 818-7712" },
 ];
 
 export default function Footer() {
@@ -60,12 +60,12 @@ export default function Footer() {
 
               <div className="mt-4 space-y-1">
                 <a
-                  href="tel:19499928491"
+                  href="tel:19498187712"
                   className="text-xs font-semibold text-white/80 hover:text-[var(--color-primary)] transition-colors"
                 >
                   Contact:
                 </a>
-                <p className="text-sm text-gray-400">(949) 992-8491</p>
+                <p className="text-sm text-gray-400">(949) 818-7712</p>
               </div>
 
               <p className="mt-4 text-xs text-gray-400">

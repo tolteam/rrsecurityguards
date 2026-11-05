@@ -158,8 +158,8 @@ export default async function CityServicePage({ params }: PageProps) {
             <Link href="#hero" className="btn bg-white text-primary hover:bg-gray-100">
               Request {service.shortTitle}
             </Link>
-            <a href="tel:9499928491" className="btn btn-dark">
-              Call (949) 992-8491
+            <a href="tel:9498187712" className="btn btn-dark">
+              Call (949) 818-7712
             </a>
           </div>
         </div>

@@ -61,7 +61,7 @@ export default function PrivacyPolicyPage() {
             <strong>Rapid Response Security Guards</strong><br/>
             2050 W Chapman Ave Ste 277<br/>
             Orange, CA 92868<br/>
-            Phone: (949) 992-8491
+            Phone: (949) 818-7712
           </p>
           
           <div className="pt-6 border-t border-gray-200">

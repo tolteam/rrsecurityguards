@@ -59,8 +59,8 @@ export default function HeroWithForm({
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              <a href="tel:19499928491" className="btn btn-primary">
-                Call: (949) 992-8491
+              <a href="tel:19498187712" className="btn btn-primary">
+                Call: (949) 818-7712
               </a>
             </div>
 

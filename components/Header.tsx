@@ -212,10 +212,10 @@ export default function Header() {
           {/* Desktop CTAs */}
           <div className="hidden lg:flex items-center gap-3">
             <a
-              href="tel:19499928491"
+              href="tel:19498187712"
               className="text-sm font-semibold text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] transition-colors"
             >
-              (949) 992-8491
+              (949) 818-7712
             </a>
             <Link
               href="#hero"
@@ -331,10 +331,10 @@ export default function Header() {
                 Get a Free Quote
               </Link>
               <a
-                href="tel:19499928491"
+                href="tel:19498187712"
                 className="btn btn-outline w-full mt-3 text-center"
               >
-                📞 (949) 992-8491
+                📞 (949) 818-7712
               </a>
             </div>
           </div>

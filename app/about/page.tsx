@@ -144,8 +144,8 @@ export default function AboutPage() {
             <Link href="#hero" className="btn btn-dark px-8 py-3 rounded font-bold">
               Get a Free Quote
             </Link>
-            <a href="tel:19499928491" className="btn btn-outline px-8 py-3 rounded font-bold bg-white text-[#BF4524] border-transparent hover:bg-gray-100">
-              Call (949) 992-8491
+            <a href="tel:19498187712" className="btn btn-outline px-8 py-3 rounded font-bold bg-white text-[#BF4524] border-transparent hover:bg-gray-100">
+              Call (949) 818-7712
             </a>
           </div>
         </div>

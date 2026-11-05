@@ -121,7 +121,7 @@ export default function IndustriesHubPage() {
             <div>
               <h2 className="text-3xl font-bold mb-2">Ready to secure your business?</h2>
               <p className="text-white/90">
-                Call (949) 992-8491 or get a free custom quote today.
+                Call (949) 818-7712 or get a free custom quote today.
               </p>
             </div>
             <div className="flex-shrink-0">

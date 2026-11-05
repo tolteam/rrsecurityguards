@@ -146,8 +146,8 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
             <Link href="#hero" className="btn btn-primary">
               Get a Free Quote
             </Link>
-            <a href="tel:9499928491" className="btn btn-outline">
-              Call (949) 992-8491
+            <a href="tel:9498187712" className="btn btn-outline">
+              Call (949) 818-7712
             </a>
           </div>
         </div>

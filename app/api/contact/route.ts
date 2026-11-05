@@ -1,5 +1,6 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
+import { forwardLeadToDespora } from "@/lib/despora-form";
 
 export async function POST(req: Request) {
   try {
@@ -195,6 +196,14 @@ export async function POST(req: Request) {
             </div>
           </div>
         `,
+      });
+      await forwardLeadToDespora(req, {
+        name,
+        email,
+        phone,
+        message: details,
+        page: pageUrl,
+        fields: { service },
       });
       return NextResponse.json({ success: true });
     } catch (error: any) {

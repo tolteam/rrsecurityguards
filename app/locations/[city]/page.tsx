@@ -87,7 +87,7 @@ export default async function CityPage({ params }: PageProps) {
             <p className="text-lg mb-8 max-w-2xl mx-auto text-white/90">{county.description}</p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a href="#hero" className="btn bg-white text-[var(--color-primary)] hover:bg-gray-100">Get a Free Quote</a>
-              <a href="tel:19499928491" className="btn btn-dark">Call (949) 992-8491</a>
+              <a href="tel:19498187712" className="btn btn-dark">Call (949) 818-7712</a>
             </div>
           </div>
         </section>
@@ -239,8 +239,8 @@ export default async function CityPage({ params }: PageProps) {
             <Link href="#hero" className="btn bg-white text-primary hover:bg-gray-100">
               Get a Free Quote
             </Link>
-            <a href="tel:9499928491" className="btn btn-dark">
-              Call (949) 992-8491
+            <a href="tel:9498187712" className="btn btn-dark">
+              Call (949) 818-7712
             </a>
           </div>
         </div>

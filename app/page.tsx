@@ -277,8 +277,8 @@ export default function Home() {
                 response and professional guards.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
-                <a href="tel:19499928491" className="btn btn-primary">
-                  Call: (949) 992-8491
+                <a href="tel:19498187712" className="btn btn-primary">
+                  Call: (949) 818-7712
                 </a>
                 <a href="#contact" className="btn btn-outline-white">
                   Get a Free Quote
@@ -803,8 +803,8 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-white">Phone</p>
-                    <a href="tel:19499928491" className="text-base text-gray-300 hover:text-[var(--color-primary)] transition-colors">
-                      (949) 992-8491
+                    <a href="tel:19498187712" className="text-base text-gray-300 hover:text-[var(--color-primary)] transition-colors">
+                      (949) 818-7712
                     </a>
                   </div>
                 </div>
