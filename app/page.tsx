@@ -12,7 +12,11 @@ export const metadata: Metadata = {
 
 export const revalidate = 3600;
 
-import HeroForm from "@/components/HeroForm";
+// Used in hero (above-fold, SSR'd) and contact section (below-fold, lazy)
+const HeroForm = dynamic(() => import("@/components/HeroForm"), {
+  ssr: true,
+  loading: () => <div className="h-[300px] animate-pulse bg-white/5 rounded-lg" />,
+});
 
 const LazyHeroForm = dynamic(() => import("@/components/HeroForm"), {
   loading: () => <div className="h-[300px] animate-pulse bg-white/5 rounded-lg" />,
