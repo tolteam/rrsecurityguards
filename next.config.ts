@@ -13,9 +13,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  experimental: {
-    inlineCss: true,
-  },
   turbopack: {
     resolveAlias: {
       'next/dist/build/polyfills/polyfill-module':

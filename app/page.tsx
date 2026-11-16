@@ -9,6 +9,8 @@ export const metadata: Metadata = {
   },
 };
 
+export const revalidate = 3600;
+
 // Used in hero (above-fold, SSR'd) and contact section (below-fold, lazy)
 const HeroForm = dynamic(() => import("@/components/HeroForm"), {
   ssr: true,
