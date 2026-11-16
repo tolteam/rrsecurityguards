@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import { Suspense } from "react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -324,6 +325,7 @@ export default function Home() {
           SERVICES SECTION (row 1 – 3 + 3 + 1 grid)
       ═══════════════════════════════════════════ */}
       <div className="content-lazy">
+      <Suspense>
       <section id="services" className="section bg-white">
         <div className="container">
           <div className="text-center max-w-2xl mx-auto mb-12">
@@ -379,12 +381,14 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </Suspense>
       </div>
 
       {/* ═══════════════════════════════════════════
           ADDITIONAL SERVICES (Residential / Commercial / Events)
       ═══════════════════════════════════════════ */}
       <div className="content-lazy">
+      <Suspense>
       <section className="section bg-[var(--color-surface)]">
         <div className="container">
           <div className="text-center max-w-2xl mx-auto mb-12">
@@ -451,12 +455,14 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </Suspense>
       </div>
 
       {/* ═══════════════════════════════════════════
           CTA BANNER + ABOUT
       ═══════════════════════════════════════════ */}
       <div className="content-lazy">
+      <Suspense>
       <section id="about" className="relative bg-[var(--color-dark)] overflow-hidden">
         <div className="absolute inset-0 opacity-15">
           <Image
@@ -503,12 +509,14 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </Suspense>
       </div>
 
       {/* ═══════════════════════════════════════════
           TRUSTED BY — GOOGLE REVIEWS
       ═══════════════════════════════════════════ */}
       <div className="content-lazy">
+      <Suspense>
       <section className="section bg-white">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-4">
@@ -602,12 +610,14 @@ export default function Home() {
           </p>
         </div>
       </section>
+      </Suspense>
       </div>
 
       {/* ═══════════════════════════════════════════
           WHY CHOOSE US
       ═══════════════════════════════════════════ */}
       <div className="content-lazy">
+      <Suspense>
       <section className="section bg-white">
         <div className="container">
           <div className="max-w-3xl mx-auto">
@@ -642,12 +652,14 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </Suspense>
       </div>
 
       {/* ═══════════════════════════════════════════
           SERVICE AREAS
       ═══════════════════════════════════════════ */}
       <div className="content-lazy">
+      <Suspense>
       <section className="section bg-[var(--color-surface)]">
         <div className="container">
           <div className="text-center max-w-2xl mx-auto mb-12">
@@ -694,12 +706,14 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </Suspense>
       </div>
 
       {/* ═══════════════════════════════════════════
           MAP — SERVICE COVERAGE
       ═══════════════════════════════════════════ */}
       <div className="content-lazy">
+      <Suspense>
       <section className="section bg-white">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-10">
@@ -727,12 +741,14 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </Suspense>
       </div>
 
       {/* ═══════════════════════════════════════════
           FAQ
       ═══════════════════════════════════════════ */}
       <div className="content-lazy">
+      <Suspense>
       <section className="section bg-white">
         <div className="container">
           <div className="max-w-3xl mx-auto">
@@ -778,12 +794,14 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </Suspense>
       </div>
 
       {/* ═══════════════════════════════════════════
           CONTACT
       ═══════════════════════════════════════════ */}
       <div className="content-lazy">
+      <Suspense>
       <section id="contact" className="section bg-[var(--color-dark)]">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -835,6 +853,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </Suspense>
       </div>
     </>
   );
