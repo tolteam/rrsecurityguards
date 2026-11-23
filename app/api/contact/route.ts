@@ -14,6 +14,14 @@ export async function POST(req: Request) {
 
     const resend = new Resend(apiKey);
     const body = await req.json();
+    // Despora daily form-health-check probe: drop silently so the client is never emailed.
+    if (
+      req.headers.get("x-despora-health-check") === "1" ||
+      body?.name === "_form_health_check_" ||
+      body?.healthCheck === true
+    ) {
+      return NextResponse.json({ success: true, ok: true });
+    }
     const { name, email, phone, service, details, pageUrl, confirm_email, timeElapsed } = body;
 
     // Bot detection: honeypot field confirmed or speed submission (time elapsed < 3 seconds)
