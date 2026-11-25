@@ -258,10 +258,9 @@ export default function Home() {
             src="/images/hero.webp"
             alt="Security guards protecting property in Orange, California"
             fill
-            priority
-            fetchPriority="high"
+            loading="lazy"
             sizes="100vw"
-            className="object-cover opacity-30"
+            className="hidden lg:block object-cover opacity-30"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-dark)] via-[var(--color-dark)]/80 to-transparent" />
         </div>
