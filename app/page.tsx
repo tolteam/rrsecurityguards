@@ -325,7 +325,7 @@ export default function Home() {
       ═══════════════════════════════════════════ */}
       <div className="content-lazy">
       <Suspense>
-      <section id="services" className="section bg-white">
+      <section id="services" className="section bg-white content-lazy">
         <div className="container">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="text-3xl md:text-4xl font-semibold text-[var(--color-text)]">
@@ -388,7 +388,7 @@ export default function Home() {
       ═══════════════════════════════════════════ */}
       <div className="content-lazy">
       <Suspense>
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section bg-[var(--color-surface)] content-lazy">
         <div className="container">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="text-3xl md:text-4xl font-semibold text-[var(--color-text)]">
@@ -462,7 +462,7 @@ export default function Home() {
       ═══════════════════════════════════════════ */}
       <div className="content-lazy">
       <Suspense>
-      <section id="about" className="relative bg-[var(--color-dark)] overflow-hidden">
+      <section id="about" className="relative bg-[var(--color-dark)] overflow-hidden content-lazy">
         <div className="absolute inset-0 opacity-15">
           <Image
             src={`/images/irvine-spectrum.webp`}
@@ -516,7 +516,7 @@ export default function Home() {
       ═══════════════════════════════════════════ */}
       <div className="content-lazy">
       <Suspense>
-      <section className="section bg-white">
+      <section className="section bg-white content-lazy">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-4">
             <h2 className="text-3xl md:text-4xl font-semibold text-[var(--color-text)]">
@@ -617,7 +617,7 @@ export default function Home() {
       ═══════════════════════════════════════════ */}
       <div className="content-lazy">
       <Suspense>
-      <section className="section bg-white">
+      <section className="section bg-white content-lazy">
         <div className="container">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-semibold text-[var(--color-text)] text-center mb-4">
@@ -659,7 +659,7 @@ export default function Home() {
       ═══════════════════════════════════════════ */}
       <div className="content-lazy">
       <Suspense>
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section bg-[var(--color-surface)] content-lazy">
         <div className="container">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="text-3xl md:text-4xl font-semibold text-[var(--color-text)]">
@@ -713,7 +713,7 @@ export default function Home() {
       ═══════════════════════════════════════════ */}
       <div className="content-lazy">
       <Suspense>
-      <section className="section bg-white">
+      <section className="section bg-white content-lazy">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-10">
             <h2 className="text-3xl md:text-4xl font-semibold text-[var(--color-text)]">
@@ -748,7 +748,7 @@ export default function Home() {
       ═══════════════════════════════════════════ */}
       <div className="content-lazy">
       <Suspense>
-      <section className="section bg-white">
+      <section className="section bg-white content-lazy">
         <div className="container">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-10">
